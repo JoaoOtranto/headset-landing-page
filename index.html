@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headset Gamer</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Super Songer</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="/assets/img/hero-img.png" alt="Headset">
+            </div>
+            <div class="hero-content">
+                <h1>Conheça o Aqua 1090x</h1>
+                <p>Experimente áudio imersivo e conforto extremo para longas sessões com o melhor headset!</p>
+
+                <a href="#about" class="btn">Saiba mais</a>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="about-container">
+
+            <div class="about-header">
+                <h2>Sobre o Headset</h2>
+                <p>Projetado para oferecer desempenho, conforto e imersão em qualquer situação.</p>
+            </div>
+
+            <div class="about-grid">
+
+            <div class="about-card">
+                <h3>🎧 Áudio de Alta Precisão</h3>
+                <p>
+                Equipado com drivers de 50mm, o headset entrega graves profundos,
+                médios equilibrados e agudos cristalinos, proporcionando uma
+                experiência sonora imersiva para jogos e música.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>🧠 Conforto Prolongado</h3>
+                <p>
+                Almofadas em espuma de memória com revestimento respirável garantem
+                conforto mesmo após horas de uso, reduzindo a pressão e o aquecimento.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>📡 Conexão Sem Fio</h3>
+                <p>
+                Tecnologia wireless de baixa latência com alcance estável e bateria
+                de longa duração, permitindo total liberdade durante o uso.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>🎤 Microfone Integrado</h3>
+                <p>
+                Microfone com cancelamento de ruído para comunicação clara e sem
+                interferências, ideal para jogos online e chamadas.
+                </p>
+            </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <div class="reviews-container">
+
+            <div class="reviews-header">
+                <h2>O que dizem nossos usuários</h2>
+                <p>Experiências reais de quem já testou o headset</p>
+            </div>
+
+            <div class="carousel">
+
+            <button class="carousel-btn prev">❮</button>
+
+            <div class="carousel-track">
+
+                <!-- REVIEW 1 -->
+                <div class="review-card">
+                    <img src="assets/img/user1.jpg" class="review-avatar">
+                    <h3>Lucas Andrade</h3>
+                    <div class="stars">★★★★★</div>
+                    <p>Áudio absurdo de bom, consigo ouvir tudo nos jogos com precisão.</p>
+                </div>
+
+                <!-- REVIEW 2 -->
+                <div class="review-card">
+                    <img src="assets/img/user2.jpg" class="review-avatar">
+                    <h3>Mariana Silva</h3>
+                    <div class="stars">★★★★★</div>
+                    <p>Muito confortável, uso por horas e não incomoda nada.</p>
+                </div>
+
+                <!-- REVIEW 3 -->
+                <div class="review-card">
+                    <img src="assets/img/user3.jpg" class="review-avatar">
+                    <h3>Rafael Costa</h3>
+                    <div class="stars">★★★★☆</div>
+                    <p>Bateria excelente e conexão muito estável.</p>
+                </div>
+
+                <!-- REVIEW 4 -->
+                <div class="review-card">
+                    <img src="assets/img/user4.jpg" class="review-avatar">
+                    <h3>Fernanda Oliveira</h3>
+                    <div class="stars">★★★★★</div>
+                    <p>Microfone com cancelamento de ruído é perfeito.</p>
+                </div>
+
+                <!-- REVIEW 5 -->
+                <div class="review-card">
+                    <img src="assets/img/user5.jpg" class="review-avatar">
+                    <h3>Bruno Martins</h3>
+                    <div class="stars">★★★★☆</div>
+                    <p>Design muito bonito e moderno.</p>
+                </div>
+
+            </div>
+
+            <button class="carousel-btn next">❯</button>
+
+            </div>
+
+        </div>
+    </section>
+
+</body>
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const nextBtn = document.querySelector('.next');
+        const prevBtn = document.querySelector('.prev');
+
+        let index = 0;
+
+        function getCardWidth() {
+        const card = document.querySelector('.review-card');
+        const style = window.getComputedStyle(track);
+        const gap = parseInt(style.gap);
+        return card.offsetWidth + gap;
+        }
+
+        nextBtn.addEventListener('click', () => {
+        const cardWidth = getCardWidth();
+        const maxIndex = track.children.length - 3; // mostra 3 por vez
+
+        if (index < maxIndex) {
+            index++;
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+        }
+        });
+
+        prevBtn.addEventListener('click', () => {
+        const cardWidth = getCardWidth();
+
+        if (index > 0) {
+            index--;
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+        }
+        });
+    </script>
+</html>
